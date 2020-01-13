@@ -106,7 +106,7 @@ function Application() {
 
 	var ip = get_client_ip(req);
 
-	var limit = 10;
+	var limit = 1;
 
 	var amount = parseFloat(req.query.amount);
 	if(amount > limit)
@@ -196,21 +196,21 @@ function Application() {
     http.createServer(app).listen(config.http_port);
 
     function init() {
-        self.client.getAccountAddress('', function(err, address) {
-            if(err) {
-                console.error("Unable to obtain account address (RPC reachable?), waiting 2sec...".red.bold, err);
-                return dpc(2000, init);
-            }
+		//self.client.getAccountAddress('', function(err, address) {
+        //    if(err) {
+        //        console.error("Unable to obtain account address (RPC reachable?), waiting 2sec...".red.bold, err);
+        //        return dpc(2000, init);
+        //    }
 
-            console.log("Local address:",address);
+        //    console.log("Local address:",address);
 
-            self.status.address = address;
-            update_status();
-        })
+        //})
+        self.status.address = "2N87QGzuJsU41bUaq4rcLmYnE5DQHd1jDgq";
+        update_status();
     }
 
     function update_status() {
-        self.client.getInfo(function(err, info) {
+        self.client.getNetworkInfo(function(err, info) {
             if(err)
                 console.error("getInfo error:",err);
             self.status.info = info;

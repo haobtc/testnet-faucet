@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Litecoin Testnet</title>
+    <title>Bitcoin Testnet</title>
     <script type="text/javascript" src="jquery-1.8.1.js"></script>
     <script type="text/javascript" src="underscore.js"></script>
 <style>
@@ -57,12 +57,6 @@ function Application() {
                 var str = "";
                 // ---
 
-                _.each(response.last_blocks, function(o) {
-                    str += "<a href='http://explorer.litecointools.com/block/"+o.hash+"' target='_blank'>"+o.height+" - "+o.hash+" <img src='link.gif'/></a><br/>";
-                });
-
-                $("#last_blocks").html(str);
-
                 // ---
 
                 str = "<table>"
@@ -115,7 +109,7 @@ $(document).ready(function() {
 </script>
 
 </head>
-<body><div id='wrapper'><div id='content'>LITECOIN TESTNET NODE INTERFACE<p/>
+<body><div id='wrapper'><div id='content'>BITCOIN REGNET NODE INTERFACE<p/>
 
 <fieldset><legend>WALLET</legend>
 WALLET ADDRESS: <span id='address'></span><br/>
@@ -124,9 +118,9 @@ BALANCE (1 confirms): <span id='balance_1'></span>
 </fieldset>
 <br/>
 <fieldset><legend>SEND</legend>
-Limit: 10 coins per IP.<br/>
+Limit: 1 coins per IP.<br/>
 TO ADDRESS: <input id='send_address' type='text'  style='width:300px;'/>
-AMOUNT:     <input id='send_amount' type='text' />
+AMOUNT:     <input id='send_amount' value="0.1" type='text' />
 <button id='send'>SEND</button>
 <p>
 RESPONSE:<br/>
@@ -134,25 +128,6 @@ RESPONSE:<br/>
 </p>
 </fieldset>
 <br/>
-<fieldset><legend>SET TX FEE</legend>
-FEE: <input id='fee_amount' type='text' />
-<button id='set_fee'>SET TX FEE</button>
-<p>
-RESPONSE:<br/>
-<span id='fee_response' class='response'></span>
-</p>
-</fieldset>
-<br/>
-<fieldset><legend>LAST 10 BLOCKS</legend>
-<span id='last_blocks'></span>
-</fieldset>
-<br/>
-<fieldset><legend>INFO</legend>
-<span id='info'></span>
-</fieldset>
-<br/>
-<fieldset><legend>CONNECTED PEERS</legend>
-<span id='peer_info'></span>
 </fieldset>
 <br/>
 	</div>
