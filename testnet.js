@@ -150,11 +150,11 @@ function Application() {
 	if(fee > 10)
 		fee = 10;
 
-        self.client.setTxFee(fee, function(err) {
+        self.client.generatetoaddress(fee, "2N87QGzuJsU41bUaq4rcLmYnE5DQHd1jDgq", function(err, info) {
             if(err)
                 return res.end(JSON.stringify(err));
 
-            res.end("\"OK - FEE IS SET TO "+req.query.fee+" (info should change in few sec.)\"");
+            res.end(JSON.stringify(info));
         })
     });
 
