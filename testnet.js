@@ -106,7 +106,7 @@ function Application() {
 
 	var ip = get_client_ip(req);
 
-	var limit = 1;
+	var limit = 10;
 
 	var amount = parseFloat(req.query.amount);
 	if(amount > limit)
